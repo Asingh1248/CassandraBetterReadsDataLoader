@@ -138,7 +138,7 @@ public class BetterreadsDataLoaderApplication {
 						//TODO : fetching the AuthorName from Cassandra and Mapping AuthorName and AuthorId
 						List<String> authorNames = authorIds.stream().map(id -> authorRepository.findById(id))
 								.map(optionalAuthor -> {
-									if (optionalAuthor.isPresent()) return "Unknown Author";
+									if (!optionalAuthor.isPresent()) return "Unknown Author";
 									return optionalAuthor.get().getName();
 								}).collect(Collectors.toList());
 
@@ -150,7 +150,7 @@ public class BetterreadsDataLoaderApplication {
 
 
 				} catch (JSONException e) {
-					e.printStackTrace();
+					e.printStackTrace(); // One Issue it breaks the prr
 				}
 
 
@@ -166,7 +166,7 @@ public class BetterreadsDataLoaderApplication {
 	@PostConstruct 	//The dependencies of some of the beans in the application context form a cycle:
 	public void start(){
 
-//		initAuthors();
+		initAuthors();
 		initWorks();
 
 //		Author author = new Author();

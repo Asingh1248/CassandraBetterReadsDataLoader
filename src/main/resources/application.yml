@@ -2,7 +2,7 @@
 
 datadump.location:
          author : C:\Users\Nomura\betterreads-data-loader\test-authors.txt
-         works  : C:\Users\Nomura\betterreads-data-loader\test-authors.txt
+         works  : C:\Users\Nomura\betterreads-data-loader\test-works.txt
 
 spring:
   data:
